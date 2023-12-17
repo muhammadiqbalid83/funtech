@@ -6,8 +6,12 @@ export default {
       abu: '#3c3c3c',
       hitam: '#000000',
       'abu-hitam': '#131118',
+      putih: '#fff',
     },
     extend: {},
   },
-  plugins: [],
+  plugins: [require('daisyui')],
+  daisyui: {
+    themes: ['light', 'dark', 'cupcake'],
+  },
 }
