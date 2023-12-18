@@ -1,25 +1,30 @@
-import { BsCart3 } from 'react-icons/bs'
-import { Button } from '.'
-import Menu from './Menu'
+import { Link } from 'react-router-dom'
+import { FaBars } from 'react-icons/fa'
+import { links } from '../utils/constants'
+import { CartButtons } from '.'
 const Header = () => {
   return (
-    <header className="container mx-auto flex justify-between items-center h-[100px] py-6">
-      <div className="font-bold text-[40px]">Funtech</div>
-      <div className="flex text-abu-hitam font-medium gap-[40px]">
-        <Menu />
-      </div>
-      <div className="flex gap-4 items-center">
-        <div className="relative">
-          <BsCart3 className="h-6 w-6" />
-          <span className="absolute top-[-10px] left-[10px] bg-hitam text-putih rounded-full text-xs pt-[3px] pl-[6px] w-5 h-5">
-            0
-          </span>
+    <div className="py-3 flex justify-center">
+      <div className="nav-center">
+        <div className="nav-header">
+          <Link to="/">Funtech</Link>
+          <button type="button" className="nav-toggle">
+            <FaBars />
+          </button>
         </div>
-        <div>
-          <Button />
-        </div>
+        <ul className="nav-links">
+          {links.map((link) => {
+            const { id, text, url } = link
+            return (
+              <li key={id}>
+                <Link to={url}>{text}</Link>
+              </li>
+            )
+          })}
+        </ul>
+        <CartButtons />
       </div>
-    </header>
+    </div>
   )
 }
 
